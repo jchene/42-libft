@@ -6,19 +6,11 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:02:26 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/07 10:02:28 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/07 18:26:25 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_strlen(char  *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
-}
+#include "libft.h"
 
 char    *ft_strrchr(const char *s, int c)
 {
@@ -28,7 +20,7 @@ char    *ft_strrchr(const char *s, int c)
 
     str = (char *)s;
     len = ft_strlen(str);
-    i = len - 1;
+    i = len;
     if (str == NULL)
         return (NULL);
     while (i >= 0)
