@@ -6,7 +6,7 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:25:15 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/07 18:15:39 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/07 18:35:36 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	{
 		dest[i] = (unsigned char)source[i];
 		if (source[i] == chr)
-			return (&dst[i]);
+			return (&dst[i + 1]);
 		i++;
 	}
 	return (NULL);

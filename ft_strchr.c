@@ -6,11 +6,13 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:02:09 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/07 18:23:33 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/07 18:55:06 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	ft_strlen(char	*str);
 
 char  *ft_strchr(const char *s, int c)
 {
