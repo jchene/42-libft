@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 19:23:02 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/12 13:26:01 by jchene           ###   ########.fr       */
+/*   Created: 2019/11/12 15:47:15 by jchene            #+#    #+#             */
+/*   Updated: 2019/11/12 17:41:55 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned char	*source;
-	size_t			i;
-	char			*dest;
+int	ft_strlen(char *str);
 
-	source = (unsigned char *)src;
-	dest = dst;
+char	*ft_strdup(const char *s1)
+{
+	int	i;
+	int	len;
+	char	*str;
+	
 	i = 0;
-	if (dest == NULL && source == NULL)
+	len = ft_strlen((char *)s1);
+	str = (char *)malloc(sizeof(char) * len + 1);
+	if (!(str))
 		return (NULL);
-	while (i < n)
+	while (i < len)
 	{
-		dest[i] = (unsigned char)source[i];
+		str[i] = (char)s1[i];
 		i++;
 	}
-	return (dst);
+	str[i] = '\0';
+	return (str);
 }

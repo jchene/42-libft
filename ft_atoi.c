@@ -6,65 +6,74 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:06:06 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/11 20:01:03 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/12 19:15:05 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-int	ft_isdigit(int c);
-
-int	ft_iswhitespace(int c)
+int	ft_nblen(char *str)
 {
-	if (c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f' || c  == ' ')
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+		i++;
+	return (i);
 }
 
-int	ft_issymbol(int c)
+int	ft_longcmp(const char *s1, const int minus)
 {
-	if (c == '-' || c == '+')
+	int		i;
+	char	*longstr;
+
+	i = 0;
+	longstr = "9223372036854775807";
+	if (ft_nblen((char *)s1) < 19)
 		return (1);
-	return (0);
+	if (ft_nblen((char *)s1) > 19)
+	{
+		if (minus)
+			return (0);
+		return (-1);
+	}
+	while (s1[i] && (s1[i] == longstr[i]))
+		i++;
+	if (s1[i] >= '0' && s1[i] <= '9')
+	{
+		if (s1[i] > longstr[i])
+		{
+			if (minus)
+				return (0);
+			return (-1);
+		}
+	}
+	return (1);
 }
 
 int	ft_atoi(const char *str)
 {
-	long	ret;
 	int	i;
+	int	ret;
 	int	minus;
 
 	i = 0;
 	ret = 0;
 	minus = 0;
-	while (ft_iswhitespace(str[i]))
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\r' ||
+		str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
 		i++;
-	if (ft_issymbol(str[i]) && ft_isdigit(str[i + 1]))
-	{
-		if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
+		if (str[++i - 1] == '-')
 			minus++;
+	if (ft_longcmp(&str[i], minus) != 1)
+		return (ft_longcmp(&str[i], minus));
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		ret = ret * 10 + (str[i] - '0');
 		i++;
 	}
-	if (ft_isdigit(str[i]))
-	{
-		while (ft_isdigit(str[i]))
-		{
-			printf("ret: %ld\n", ret);
-			ret = ret * 10 + (str[i] - '0');
-			i++;
-		}
-		if (minus)
-			ret = ret * -1;
-	}
+	if (minus)
+		ret = ret * -1;
 	return (ret);
-}
-
-int	main()
-{
-	char *str = "9223372036854775807";
-	printf("atoi:    %d\n\n", atoi(str));
-	printf("ft_atoi: %d\n", ft_atoi(str));
-	return (0);
 }
