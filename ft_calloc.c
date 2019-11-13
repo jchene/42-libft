@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 15:10:32 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/13 12:29:29 by jchene           ###   ########.fr       */
+/*   Created: 2019/11/13 11:36:42 by jchene            #+#    #+#             */
+/*   Updated: 2019/11/13 18:51:13 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - ('a' - 'A'));
-	return (c);
+	void	*ptr;
+
+	ptr = malloc(size * count);
+	if (!(ptr))
+		return (NULL);
+	ft_memset(ptr, 0, count * size);
+	return (ptr);
 }

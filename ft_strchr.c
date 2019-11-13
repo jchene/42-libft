@@ -5,31 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 10:02:09 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/12 15:37:01 by jchene           ###   ########.fr       */
+/*   Created: 2019/11/13 13:03:47 by jchene            #+#    #+#             */
+/*   Updated: 2019/11/13 13:09:25 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char	*str);
-
-char  *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    char    *str;
-    int     i;
-    int     len;
+	char	*str;
+	int		i;
+	int		len;
 
-    str = (char *)s;
-    len = ft_strlen(str);
-    i = 0;
-    if (str == NULL)
-        return (NULL);
-    while (i < len + 1)
-    {
-        if (str[i] == c)
-            return (&str[i]);
-        i++;
-    }
-    return (NULL);
+	str = (char *)s;
+	len = ft_strlen(str);
+	i = 0;
+	if (str == NULL)
+		return (NULL);
+	while (i < len + 1)
+	{
+		if (str[i] == c)
+			return (&str[i]);
+		i++;
+	}
+	return (NULL);
 }

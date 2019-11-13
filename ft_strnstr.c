@@ -6,19 +6,17 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 15:13:56 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/11 16:05:38 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/13 12:53:37 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str);
-
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	unsigned int	i;
-	int			ncnt;
-	int			nlen;
+	int				ncnt;
+	int				nlen;
 
 	i = 0;
 	ncnt = 0;
