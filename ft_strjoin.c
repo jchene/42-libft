@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/12 15:47:15 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/14 12:58:48 by jchene           ###   ########.fr       */
+/*   Created: 2019/11/14 13:32:32 by jchene            #+#    #+#             */
+/*   Updated: 2019/11/14 15:28:48 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		len;
-	char	*str;
+	char				*str;
+	unsigned int		lens1;
+	unsigned int		lens2;
 
-	i = 0;
-	len = (int)ft_strlen((char *)s1);
-	str = (char *)malloc(sizeof(char) * len + 1);
-	if (!(str))
+	if (!(s1) && !(s2))
 		return (NULL);
-	while (i < len)
-	{
-		str[i] = (char)s1[i];
-		i++;
-	}
-	str[i] = '\0';
+	else if (!(s1))
+		return ((char *)s2);
+	else if (!(s2))
+		return ((char *)s1);
+	lens1 = (int)ft_strlen(s1);
+	lens2 = (int)ft_strlen(s2);
+	if (!(str = (char *)ft_calloc((lens1 + lens2 + 1), sizeof(char))))
+		return (NULL);
+	ft_strlcpy(str, s1, lens1 + 1);
+	ft_strlcpy(&str[lens1], s2, lens2 + 1);
 	return (str);
 }
