@@ -6,7 +6,7 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 15:29:02 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/14 18:01:46 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/15 15:05:12 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 int		ft_isinset(int c, char const *set)
 {
-	int		i;
-
-	i = -1;
-	while (set[++i])
-		if (set[i] == c)
+	while (*set)
+		if (*set++ == c)
 			return (1);
 	return (0);
 }
@@ -28,7 +25,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char			*str;
 	int				i;
 	unsigned int	start;
-	unsigned int	end;
 
 	if (!(s1) || !(*s1) || !(set))
 		return ((char *)s1);
@@ -37,7 +33,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	if (s1[i])
 		start = i;
-	else if (i == ft_strlen(s1))
+	else if (i == (int)ft_strlen(s1))
 		return (ft_strdup(""));
 	else
 		return (0);
