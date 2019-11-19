@@ -6,13 +6,13 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:06:06 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/14 12:51:47 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/19 16:05:17 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_nblen(char *str)
+static int	ft_nblen(char *str)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ int	ft_nblen(char *str)
 	return (i);
 }
 
-int	ft_longcmp(const char *s1, const int minus)
+static int	ft_longcmp(const char *s1, const int minus)
 {
 	int		i;
 	char	*longstr;
@@ -51,7 +51,7 @@ int	ft_longcmp(const char *s1, const int minus)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	int	i;
 	int	ret;

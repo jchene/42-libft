@@ -6,13 +6,13 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 16:07:22 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/15 17:31:43 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/19 16:08:49 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_nbrlen(long nb)
+static int	ft_nbrlen(long nb)
 {
 	long	i;
 
@@ -25,7 +25,7 @@ int		ft_nbrlen(long nb)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		i;
 	int		neg;
