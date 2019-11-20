@@ -6,7 +6,7 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 12:47:40 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/15 15:05:52 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/20 17:02:14 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
 	if (!(str = (char *)ft_calloc(len + 1, sizeof(char))))
 		return (NULL);
 	ft_strlcpy(str, &s[start], len + 1);

@@ -38,19 +38,19 @@ SRCS		=	ft_atoi.c\
 				ft_tolower.c\
 				ft_toupper.c\
 
-BONUSSRCS	=	ft_lstadd_back_bonus.c\
-				ft_lstadd_front_bonus.c\
-				ft_lstclear_bonus.c\
-				ft_lstdelone_bonus.c\
-				ft_lstiter_bonus.c\
-				ft_lstlast_bonus.c\
-				ft_lstmap_bonus.c\
-				ft_lstnew_bonus.c\
-				ft_lstsize_bonus.c\
+BONUSSRCS	=	ft_lstadd_back.c\
+				ft_lstadd_front.c\
+				ft_lstclear.c\
+				ft_lstdelone.c\
+				ft_lstiter.c\
+				ft_lstlast.c\
+				ft_lstmap.c\
+				ft_lstnew.c\
+				ft_lstsize.c\
 
-CMP			=	gcc
+CC			=	gcc
 
-FLAGS		=	-Werror -Wextra -Wall
+CFLAGS		=	-Werror -Wextra -Wall
 
 DEL			=	rm -f
 
@@ -59,13 +59,13 @@ OBJS		=	${SRCS:.c=.o}
 BONUSOBJS	=	${BONUSSRCS:.c=.o}
 
 $(NAME):		${OBJS}
-				${CMP} -c -I ${HEADER} ${SRCS}
+				${CC} -c ${CFLAGS} -I ${HEADER} ${SRCS}
 				ar rc ${NAME} ${OBJS}
 
 all:			${NAME}
 
 bonus:			${BONUSBJS} fclean
-				${CMP} -c -I ${HEADER} ${SRCS} ${BONUSSRCS}
+				${CC} -c ${CFLAGS} -I ${HEADER} ${SRCS} ${BONUSSRCS}
 				ar rc ${NAME} ${OBJS} ${BONUSOBJS}
 
 clean:
