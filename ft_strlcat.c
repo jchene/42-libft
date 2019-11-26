@@ -6,7 +6,7 @@
 /*   By: jchene <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 14:59:36 by jchene            #+#    #+#             */
-/*   Updated: 2019/11/25 19:38:47 by jchene           ###   ########.fr       */
+/*   Updated: 2019/11/26 20:45:47 by jchene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	unsigned int	len;
 	size_t			i;
 
-	len = ft_strlen((char *)dst);
 	i = 0;
 	if (dstsize == 0)
 		return (ft_strlen((char *)src));
+	if (dst == NULL)
+		return (0);
+	len = ft_strlen((char *)dst);
 	if (dstsize < len)
 		return (dstsize + ft_strlen((char *)src));
 	while (len + i < dstsize - 1 && src[i])
